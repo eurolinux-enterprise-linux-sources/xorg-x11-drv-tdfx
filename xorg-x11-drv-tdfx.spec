@@ -4,7 +4,7 @@
 
 Summary:   Xorg X11 tdfx video driver
 Name:      xorg-x11-drv-tdfx
-Version:   1.4.3
+Version:   1.4.5
 Release:   2%{?dist}
 URL:       http://www.x.org
 License: MIT
@@ -58,6 +58,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man4/tdfx.4*
 
 %changelog
+* Wed Aug 22 2012 airlied@redhat.com - 1.4.5-2
+- rebuild for server ABI requires
+
+* Wed Aug 08 2012 Ben Skeggs <bskeggs@redhat.com> 1.4.5-1
+- upstream release 1.4.5 (rebase for 6.4)
+
 * Tue Jun 28 2011 Ben Skeggs <bskeggs@redhat.com> - 1.4.3-2
 - rebuild for 6.2 server rebase
 
