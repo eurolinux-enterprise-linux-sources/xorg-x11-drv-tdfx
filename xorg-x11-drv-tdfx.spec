@@ -7,8 +7,8 @@
 
 Summary:   Xorg X11 tdfx video driver
 Name:      xorg-x11-drv-tdfx
-Version:   1.4.5
-Release:   10%{?gitdate:.%{gitdate}git%{gitversion}}%{?dist}
+Version:   1.4.6
+Release:   1%{?gitdate:.%{gitdate}git%{gitversion}}%{?dist}
 URL:       http://www.x.org
 License: MIT
 Group:     User Interface/X Hardware Support
@@ -20,8 +20,6 @@ Source2:    commitid
 %else
 Source0:   ftp://ftp.x.org/pub/individual/driver/%{tarball}-%{version}.tar.bz2
 %endif
-
-Patch0: 0001-Remove-mibstore.h.patch
 
 ExcludeArch: s390 s390x
 
@@ -40,7 +38,6 @@ X.Org X11 tdfx video driver.
 
 %prep
 %setup -q -n %{tarball}-%{?gitdate:%{gitdate}}%{!?gitdate:%{version}}
-%patch0 -p1
 
 %build
 autoreconf -f -v --install || exit 1
@@ -65,6 +62,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man4/tdfx.4*
 
 %changelog
+* Wed Nov 11 2015 Adam Jackson <ajax@redhat.com> 1.4.6-1
+- tdfx 1.4.6
+
 * Mon Jul 28 2014 Adam Jackson <ajax@redhat.com> 1.4.5-10
 - Fix dist tag
 
