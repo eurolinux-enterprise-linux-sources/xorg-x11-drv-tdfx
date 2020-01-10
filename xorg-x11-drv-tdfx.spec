@@ -5,7 +5,7 @@
 Summary:   Xorg X11 tdfx video driver
 Name:      xorg-x11-drv-tdfx
 Version:   1.4.3
-Release:   1.1%{?dist}
+Release:   2%{?dist}
 URL:       http://www.x.org
 License: MIT
 Group:     User Interface/X Hardware Support
@@ -23,7 +23,8 @@ BuildRequires: xorg-x11-util-macros >= 1.1.5
 BuildRequires: mesa-libGL-devel
 
 Requires:  hwdata
-Requires:  xorg-x11-server-Xorg >= 1.4.99.1
+Requires:  Xorg %(xserver-sdk-abi-requires ansic)
+Requires:  Xorg %(xserver-sdk-abi-requires videodrv)
 
 %description 
 X.Org X11 tdfx video driver.
@@ -57,6 +58,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man4/tdfx.4*
 
 %changelog
+* Tue Jun 28 2011 Ben Skeggs <bskeggs@redhat.com> - 1.4.3-2
+- rebuild for 6.2 server rebase
+
 * Mon Nov 30 2009 Dennis Gregorovic <dgregor@redhat.com> - 1.4.3-1.1
 - Rebuilt for RHEL 6
 
